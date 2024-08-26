@@ -1,6 +1,6 @@
 import { FC, SyntheticEvent, useState } from 'react';
 import { LoginUI } from '@ui-pages';
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../services/store';
 import {
   getLoginUser,
   getUserState,

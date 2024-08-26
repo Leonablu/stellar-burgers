@@ -1,7 +1,6 @@
 import { FC, useMemo } from 'react';
 import { TConstructorIngredient } from '@utils-types';
 import { BurgerConstructorUI } from '@ui';
-import { useSelector } from 'react-redux';
 import {
   getConstructorState,
   getOrderRequest,
@@ -10,7 +9,7 @@ import {
   setRequest,
   getOrderBurger
 } from '../../services/slices/constructorSlice';
-import { useDispatch } from '../../services/store';
+import { useDispatch, useSelector } from '../../services/store';
 import { getUserState } from '../../services/slices/userSlice';
 import { useNavigate } from 'react-router-dom';
 

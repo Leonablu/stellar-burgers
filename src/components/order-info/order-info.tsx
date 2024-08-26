@@ -3,7 +3,7 @@ import { Preloader } from '../ui/preloader';
 import { OrderInfoUI } from '../ui/order-info';
 import { TIngredient } from '@utils-types';
 import { getIngredientState } from '../../services/slices/ingredientSlice';
-import { useSelector } from 'react-redux';
+import { useSelector } from '../../services/store';
 import {
   getOrderByNumber,
   getOrderState
