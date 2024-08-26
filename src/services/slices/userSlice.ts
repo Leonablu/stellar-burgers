@@ -43,7 +43,7 @@ export const getRegisterUser = createAsyncThunk(
 );
 
 export const getLoginUser = createAsyncThunk(
-  'users/loginUser',
+  'user/loginUser',
   async ({ email, password }: TLoginData) => {
     const data = await loginUserApi({ email, password });
     if (!data.success) {
@@ -59,16 +59,12 @@ export const getUser = createAsyncThunk('users/getUser', getUserApi);
 
 export const getOrders = createAsyncThunk('users/getOrders', getOrdersApi);
 
-export const updateUser = createAsyncThunk(
-  'users/updateUser',
-  async (user: Partial<TRegisterData>) => await updateUserApi(user)
-);
+export const updateUser = createAsyncThunk('users/updateUser', updateUserApi);
 
-export const logoutUser = createAsyncThunk('user/logoutUser', async () => {
+export const getLogoutUser = createAsyncThunk('user/logoutUser', async () => {
   await logoutApi();
   localStorage.clear();
   deleteCookie('accessToken');
-  return;
 });
 
 export const userSlice = createSlice({
@@ -79,7 +75,7 @@ export const userSlice = createSlice({
       state.user = null;
     },
     resetError: (state) => {
-      state.error;
+      state.error = null;
     }
   },
   extraReducers: (builder) => {
@@ -146,19 +142,19 @@ export const userSlice = createSlice({
       state.error = null;
       state.response = action.payload.user;
     });
-    builder.addCase(logoutUser.pending, (state) => {
+    builder.addCase(getLogoutUser.pending, (state) => {
       state.request = true;
       state.error = null;
       state.isAuthChecked = true;
       state.isAuthenticated = false;
     });
-    builder.addCase(logoutUser.rejected, (state, action) => {
+    builder.addCase(getLogoutUser.rejected, (state, action) => {
       state.request = false;
       state.error = action.error.message as string;
       state.isAuthChecked = false;
       state.isAuthenticated = true;
     });
-    builder.addCase(logoutUser.fulfilled, (state, action) => {
+    builder.addCase(getLogoutUser.fulfilled, (state, action) => {
       state.request = false;
       state.error = null;
       state.user = null;

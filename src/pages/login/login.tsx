@@ -1,11 +1,7 @@
 import { FC, SyntheticEvent, useState } from 'react';
 import { LoginUI } from '@ui-pages';
-import { useSelector } from '../../services/store';
-import {
-  getLoginUser,
-  getUserState,
-  resetError
-} from '../../services/slices/userSlice';
+import { useSelector } from 'react-redux';
+import { getLoginUser, getUserState } from '../../services/slices/userSlice';
 import { useDispatch } from '../../services/store';
 import { Navigate } from 'react-router-dom';
 
