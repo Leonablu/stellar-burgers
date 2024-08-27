@@ -10,7 +10,7 @@ import {
 } from '@api';
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { TOrder, TUser } from '@utils-types';
-import { deleteCookie, setCookie } from '../../utils/cookie';
+import { deleteCookie, getCookie, setCookie } from '../../utils/cookie';
 import { RootState } from '../store';
 
 export type UserState = {
@@ -39,7 +39,15 @@ export const initialState: UserState = {
 
 export const getRegisterUser = createAsyncThunk(
   'users/register',
-  async (registerData: TRegisterData) => await registerUserApi(registerData)
+  async (registerData: TRegisterData) => {
+    const data = await registerUserApi(registerData);
+    if (!data.success) {
+      return data;
+    }
+    setCookie('accessToken', data.accessToken);
+    localStorage.setItem('refreshToken', data.refreshToken);
+    return data;
+  }
 );
 
 export const getLoginUser = createAsyncThunk(
@@ -63,7 +71,7 @@ export const updateUser = createAsyncThunk('users/updateUser', updateUserApi);
 
 export const getLogoutUser = createAsyncThunk('user/logoutUser', async () => {
   await logoutApi();
-  localStorage.clear();
+  localStorage.removeItem('refreshToken');
   deleteCookie('accessToken');
 });
 
