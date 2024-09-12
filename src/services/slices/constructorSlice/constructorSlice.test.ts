@@ -2,22 +2,13 @@ import constructorSlice, {
   addIngredientToConstructor,
   moveIngredientDown,
   moveIngredientUp,
-  removeIngredientFromConstructor
+  removeIngredientFromConstructor,
+  initialState
 } from './constructorSlice';
 import { expect, test, describe } from '@jest/globals';
 
 describe('Тестирование редьюсера constructorSlice', () => {
   describe('Тестирование экшена addIngredientToConstructor', () => {
-    const initialState = {
-      constructorItems: {
-        bun: null,
-        ingredients: []
-      },
-      loading: false,
-      orderRequest: false,
-      orderModalData: null,
-      error: null
-    };
     const expectedResult = {
       ...initialState,
       constructorItems: {
