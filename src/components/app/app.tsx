@@ -22,10 +22,10 @@ import styles from './app.module.css';
 import { AppHeader, IngredientDetails, Modal, OrderInfo } from '@components';
 import { ProtectedRoute } from '../protected-route';
 import { useEffect } from 'react';
-import { getIngredients } from '../../services/slices/ingredientSlice';
+import { getIngredients } from '../../services/slices/ingredientSlice/ingredientSlice';
 
 import { useDispatch } from '../../services/store';
-import { getUser } from '../../services/slices/userSlice';
+import { getUser } from '../../services/slices/userSlice/userSlice';
 
 const App = () => {
   const navigate = useNavigate();

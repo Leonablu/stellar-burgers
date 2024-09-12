@@ -8,9 +8,9 @@ import {
   resetModal,
   setRequest,
   getOrderBurger
-} from '../../services/slices/constructorSlice';
+} from '../../services/slices/constructorSlice/constructorSlice';
 import { useDispatch, useSelector } from '../../services/store';
-import { getUserState } from '../../services/slices/userSlice';
+import { getUserState } from '../../services/slices/userSlice/userSlice';
 import { useNavigate } from 'react-router-dom';
 
 export const BurgerConstructor: FC = () => {
