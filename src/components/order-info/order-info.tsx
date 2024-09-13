@@ -2,12 +2,12 @@ import { FC, useEffect, useMemo } from 'react';
 import { Preloader } from '../ui/preloader';
 import { OrderInfoUI } from '../ui/order-info';
 import { TIngredient } from '@utils-types';
-import { getIngredientState } from '../../services/slices/ingredientSlice';
+import { getIngredientState } from '../../services/slices/ingredientSlice/ingredientSlice';
 import { useSelector } from '../../services/store';
 import {
   getOrderByNumber,
   getOrderState
-} from '../../services/slices/orderSlice';
+} from '../../services/slices/orderSlice/orderSlice';
 import { useDispatch } from '../../services/store';
 import { useParams } from 'react-router-dom';
 

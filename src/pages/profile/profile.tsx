@@ -5,7 +5,7 @@ import {
   getUser,
   getUserState,
   updateUser
-} from '../../services/slices/userSlice';
+} from '../../services/slices/userSlice/userSlice';
 import { useDispatch } from '../../services/store';
 import { Preloader } from '@ui';
 

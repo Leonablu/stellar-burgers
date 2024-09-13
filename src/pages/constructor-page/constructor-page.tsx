@@ -4,7 +4,7 @@ import { BurgerIngredients } from '../../components';
 import { BurgerConstructor } from '../../components';
 import { Preloader } from '../../components/ui';
 import { FC } from 'react';
-import { getIngredientState } from '../../services/slices/ingredientSlice';
+import { getIngredientState } from '../../services/slices/ingredientSlice/ingredientSlice';
 import { useSelector } from '../../services/store';
 
 export const ConstructorPage: FC = () => {
