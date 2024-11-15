@@ -41,8 +41,8 @@
 2. Установите зависимости:
 npm install
 3. Настройте переменные окружения:
-Создайте файл .env на основе .env.example.
-Укажите адрес API сервера: BURGER_API_URL=<адрес API>.
+- Создайте файл .env на основе .env.example.
+- Укажите адрес API сервера: BURGER_API_URL=https://norma.nomoreparties.space/api.
 4. Запустите проект:
 npm start
 5. Откройте приложение по адресу http://localhost:3000.
